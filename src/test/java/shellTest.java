@@ -61,13 +61,9 @@ public class shellTest {
     public void toastCheck(){
 
         String OS = System.getProperty("os.name").toLowerCase();
-        // Windows path sorunu nedeniyle localde çalışmak için manual path tanımlaması yapıldı.
-        // local kullanım için düzenleme yapılabilir.
 
-        String command = "D:\\Android\\sdk\\platform-tools\\adb.exe shell uiautomator events";
-
-
-        // TODO : Commit ederken commandı kaldır adb path ve shell commandı ekleyerek commit et
+        /** Windows path sorunu nedeniyle localde çalışmak için manual path tanımlaması yapıldı.
+        local kullanım için düzenleme yapılabilir.**/
 
         String userName = (System.getProperty("user.name"));
         String adbPath = "C:\\Users\\"+userName+"\\AppData\\Local\\Android\\sdk\\platform-tools\\";
@@ -82,9 +78,8 @@ public class shellTest {
 
         if(OS.indexOf("win") >= 0) {
 
-            String[] callCmd = {"cmd.exe", "/c", command};
 
-            //String[] callCmd = {"cmd.exe", "/c", adbPath+adbShellCommand};
+            String[] callCmd = {"cmd.exe", "/c", adbPath+adbShellCommand};
 
             exitCode = execCommand(callCmd).get(0).toString();
 
